@@ -3,9 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Hangmen Game
+  <title>Hangman Game
   </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+ 
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
@@ -13,11 +17,12 @@
   <div id="game">
     <div class="container">
       <div class="row">
-          <div class="col-md-offset-1 col-md-6">
-            <div class="image">         
+          <div class="col-md-offset-1 col-md-4">
+            <div class="image">       
+                <img id="solved-img" src="assets/images/gilles-bio-3.jpg" alt="Solved Image">  
             </div>
         </div>
-        <div class="col-md-offset-1 col-md-6">
+        <div class="col-md-offset-1 col-md-4">
           <div class="jumbotron">
               <h2>Question<span id="question-"><strong></strong></span></h2>
               <h2>You chose <span id="user-"><strong></strong></span></h2>
