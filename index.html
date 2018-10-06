@@ -17,25 +17,58 @@
   <div id="game">
     <div class="container">
       <div class="row">
-          <div class="col-md-offset-1 col-md-4">
+          <div class="col-md-offset-0 col-md-4">
             <div class="image">       
                 <img id="solved-img" src="assets/images/gilles-bio-3.jpg" alt="Solved Image">  
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
             <div class="row">
-                <div class="jumbotron">
-                        <h2>Question<span id="question-"><strong></strong></span></h2>
-                        <h2>You chose <span id="user-"><strong></strong></span></h2>
-                        <h2>Answer <span id="answer-"><strong></strong></span></h2>   
-                    </div>                   
-            </div>
-            <div class="row">
+                <div class="col">
                     <div class="jumbotron">
-                            <h2>Question2<span id="question-"><strong></strong></span></h2>
-                            <h2>You chose2 <span id="user-"><strong></strong></span></h2>
-                            <h2>Answer2 <span id="answer-"><strong></strong></span></h2>   
-                       </div>   
+                        <h1 id="instruction" >
+                         Press Any Key to get started
+                        </h1>
+                        <h1 id="wins" >
+                           Wins
+                        </h1>
+                        <h1 id="current" >
+                           Current Word
+                        </h1>
+                        <h1 id="word-to-guess">
+
+                        </h1>
+                        <h1 id="remain" >
+                            Number of Guesses Remaining
+                        </h1>
+                        <h1 id="remain" >
+                            Letters Already Guessed
+                        </h1>
+                            <!-- <h2>Question<span id="question-"><strong></strong></span></h2>
+                            <h2>You chose <span id="user-"><strong></strong></span></h2>
+                            <h2>Answer <span id="answer-"><strong></strong></span></h2>    -->
+                    </div>   
+                </div>                
+            </div>           
+            <!-- <div class="row">
+                <div class="col">
+                    <div class="jumbotron">
+               
+                            <h2>Question<span id="question-"><strong></strong></span></h2>
+                            <h2>You chose <span id="user-"><strong></strong></span></h2>
+                            <h2>Answer <span id="answer-"><strong></strong></span></h2>   
+                    </div>   
+                </div>                
+            </div> -->
+            <div class="row">
+                <div class="col">
+                    <div class="jumbotron">
+                            <h2>Question<span id="question-"><strong></strong></h2>
+                            <!-- <h2>You chose <span id="user-"><strong></strong></span></h2>
+                            <h2>Answer2 <span id="answer-"><strong></strong></span></h2>    -->
+                       </div>  
+                      
+                </div>                      
             </div>
         </div>
       </div>
@@ -115,12 +148,18 @@
     var userText = document.getElementById("user-");  
     var answerText =  document.getElementById("answer-"); 
 
+    var wtg = $("#word-to-guess");
+
     // questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
     for (i=0; i<words[numQ].length; i++)
          {
-          alert("word "+i+" = "+ words[numQ].charAt(i));
-        //   alert("word "+i+" = "+ words[numQ]);
+            var newLetter = $("<span>");
+            newLetter.addClass("newL");
+            newLetter.attr("id","letter"+i);
+            newLetter.text("_");  
+            wtg.append(newLetter);   
          }
+
     questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
 
     document.onkeyup = function(event)
@@ -128,7 +167,12 @@
       user = event.key.toLowerCase();
       for (i=0; i<words[numQ].length; i++)
          {
-          alert("word "+i+" = "+ words[numQ].charAt(i));
+   
+          if (user === words[numQ].charAt(i))
+           {
+            // alert("word "+i+" = "+ words[numQ].charAt(i));
+            $("#letter"+i).text(words[numQ].charAt(i));
+           }
         //   alert("word "+i+" = "+ words[numQ]);
          }
 /*
