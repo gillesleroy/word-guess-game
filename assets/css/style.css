@@ -43,14 +43,19 @@ p {
 , #word-to-guess
 , #remain
 , #guessed
+, #entered
 {
   font-size: 30px;
   text-align: center;
 }
 
+#remaining
+, #lettersEntered
+{
+ text-align: center;  
+}
 wtg{
    width: 20px;
-
 }
 
 /* span{

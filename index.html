@@ -41,9 +41,15 @@
                         <h1 id="remain" >
                             Number of Guesses Remaining
                         </h1>
-                        <h1 id="remain" >
+                        <h1 id="remaining">
+                                20
+                        </h1>
+                        <h1 id="entered" >
                             Letters Already Guessed
                         </h1>
+                        <h1 id="lettersEntered">
+
+                        </h1>                       
                             <!-- <h2>Question<span id="question-"><strong></strong></span></h2>
                             <h2>You chose <span id="user-"><strong></strong></span></h2>
                             <h2>Answer <span id="answer-"><strong></strong></span></h2>    -->
@@ -128,9 +134,12 @@
                      "Today is Sunday",                   
                     ];
 
+    var letters = [];
+
     var user = "";
     var computer = "";
     var numQ = 0;
+    var remain = 20;
    // var userText = "";
     // This function is run whenever the user presses a key.
 
@@ -150,6 +159,9 @@
 
     var wtg = $("#word-to-guess");
 
+    var isEntered = false;
+  //  var combinedLetters = "";
+
     // questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
     for (i=0; i<words[numQ].length; i++)
          {
@@ -165,16 +177,39 @@
     document.onkeyup = function(event)
      {
       user = event.key.toLowerCase();
-      for (i=0; i<words[numQ].length; i++)
-         {
-   
-          if (user === words[numQ].charAt(i))
-           {
-            // alert("word "+i+" = "+ words[numQ].charAt(i));
-            $("#letter"+i).text(words[numQ].charAt(i));
-           }
-        //   alert("word "+i+" = "+ words[numQ]);
-         }
+      isEntered = false;
+      for (i=0; i<letters.length; i++)
+        {
+            if (user===letters[i].toLowerCase())
+            {
+             //  alert("Letter "+user+" Already entered");
+                isEntered = true;
+            }
+        }
+      if ( isEntered === false)
+            {
+                letters.push(user);
+                for (j=0; j<words[numQ].length; j++)
+                {
+                    if (user === words[numQ].charAt(j).toLowerCase())
+                    {
+                        // alert("word "+i+" = "+ words[numQ].charAt(i));
+                        $("#letter"+j).text(words[numQ].charAt(j));
+            
+                    }
+                //   alert("word "+j+" = "+ words[numQ]);
+                }
+                var combinedLetters = "";
+                for (j=0; j<letters.length; j++)
+                    {
+                    combinedLetters = combinedLetters + letters[j]+" ";
+                    }
+                $("#lettersEntered").text(combinedLetters);
+                remain--;
+                $("#remaining").text(" "+remain);              
+            }
+
+
 /*
        if (user === questions[numQ].a)
       {
