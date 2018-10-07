@@ -125,7 +125,7 @@ if ( userScore === words[numQ].length)
  }
 else if (remain === 0)
     {
-    $("#result").text(userScore+"You Lost.");   
+    $("#result").text("You Lost.");   
     // setTimeout(initialize(), 5000);   
     }
 }

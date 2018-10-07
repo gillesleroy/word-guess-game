@@ -85,6 +85,11 @@ p {
   color: fuchsia;
 }
 
+#result
+{
+  color: rgb(0, 225, 255);
+}
+
 #remaining
 , #lettersEntered
 {
