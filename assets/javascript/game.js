@@ -29,13 +29,7 @@ var letters = [];
 var user = "";
 var totalScore = 0;
 var numQ = 0;
-var remain = 10;
-// var userText = "";
-// This function is run whenever the user presses a key.
-
-//  for (i=0; i<10; i++) 
-// { 
-//    console.log(questions[i].q);
+var remain = 20;
 
 var numQ = Math.floor(Math.random() * words.length);
 //   var i=1;
@@ -43,9 +37,9 @@ var numQ = Math.floor(Math.random() * words.length);
 var userScore = 0;
 var numQuestions = 0;
 
-var questionText = document.getElementById("question-");
-var userText = document.getElementById("user-");  
-var answerText =  document.getElementById("answer-"); 
+// var questionText = document.getElementById("question-");
+// var userText = document.getElementById("user-");  
+// var answerText =  document.getElementById("answer-"); 
 
 var wtg = $("#word-to-guess");
 var imgWin = $("#imgWin");
@@ -59,16 +53,25 @@ audioElement.setAttribute("src", "assets/captainplanet24.mp3");
 $("#remaining").text(" "+remain); 
 
 // questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
-for (i=0; i<words[numQ].length; i++)
-{
-var newLetter = $("<span>");
-newLetter.addClass("newL");
-newLetter.attr("id","letter"+i);
-newLetter.text("_");  
-wtg.append(newLetter);   
-}
+
 
 // questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
+function initialize(){
+
+    // audioElement.pause();
+    wtg.html("");
+    numQ = Math.floor(Math.random() * words.length);
+    for (i=0; i<words[numQ].length; i++)
+    {
+    var newLetter = $("<span>");
+    newLetter.addClass("newL");
+    newLetter.attr("id","letter"+i);
+    newLetter.text("_");  
+    wtg.append(newLetter);   
+    }
+}
+
+initialize();
 
 document.onkeyup = function(event)
 {
@@ -106,7 +109,7 @@ $("#remaining").text(" "+remain);
 
 if ( userScore === words[numQ].length)
  {
-   $("#result").text(userScore+"You Win!"); 
+   $("#result").text("You Win!"); 
    // $("#solved-img").attr("src",images[numQ]);
    totalScore++;
    $("#wins").text(totalScore); 
@@ -116,11 +119,14 @@ if ( userScore === words[numQ].length)
    newImg.attr("src",images[numQ]);
 //    newImg.attr("src",images[0]);
    
-   imgWin.append(newImg);   
+   imgWin.append(newImg); 
+//    setTimeout(initialize(), 5000);
+//    initialize();   
  }
 else if (remain === 0)
-{
-   $("#result").text(userScore+"You Lost.");        
-}
+    {
+    $("#result").text(userScore+"You Lost.");   
+    // setTimeout(initialize(), 5000);   
+    }
 }
 } 
