@@ -3,7 +3,10 @@ body {
   font-size: 18px;
   line-height: 34px;
   color: #777777;
-  background: url("../images/concrete_seamless.png");
+  /* background: url("../images/concrete_seamless.png"); */
+  background-image: url("../images/beatles-1.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 * {
@@ -16,18 +19,18 @@ body {
   width: 100%;
   /* max-width: 960px; */
   margin: 0 auto;
-  margin-top: 120px;
+  margin-top: 75px;
   clear: both;
-  border: 3px solid #13e035;
+  /* border: 3px solid #13e035; */
 }
 
-.col-md-3 {
+/* .col-md-3 {
     border: 3px solid #e90a0a;
 }
 
 .col-md-8 {
     border: 3px solid #dddddd;
-}
+} */
 
 h1,
 h2,
@@ -44,6 +47,7 @@ p {
 , #remain
 , #guessed
 , #entered
+, #result
 {
   font-size: 30px;
   text-align: center;
@@ -68,16 +72,23 @@ wtg{
     font-size: 30px;
     /* border-bottom: 3px solid #777777;   */
 }
-p:last-child {
+
+/* #jumbo{
+  background-color: ;
+} */
+
+/* p:last-child {
   margin-bottom: 0;
-}
+} */
 
 h1,
 h2,
 h3 {
   font-family: Georgia, Times, "Times New Roman", serif;
   font-weight: 700;
-  color: #4aaaa5;
+  /* color: #4aaaa5; */
+  /* color: mintcream; */
+  color: gainsboro;
 }
 
 h1 {
@@ -91,6 +102,7 @@ h2,
 h3 {
   font-size: 22px;
 }
+
 
 /* header */
 

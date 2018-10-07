@@ -18,14 +18,14 @@
     <div class="container">
       <div class="row">
           <div class="col-md-offset-0 col-md-4">
-            <div class="image">       
-                <img id="solved-img" src="assets/images/gilles-bio-3.jpg" alt="Solved Image">  
+            <div class="image" id="imgWin" >       
+                <!-- <img id="solved-img" alt="Solved Image">   -->
             </div>
         </div>
         <div class="col-md-8">
             <div class="row">
                 <div class="col">
-                    <div class="jumbotron">
+                    <div id="jumbo">
                         <h1 id="instruction" >
                          Press Any Key to get started
                         </h1>
@@ -42,14 +42,17 @@
                             Number of Guesses Remaining
                         </h1>
                         <h1 id="remaining">
-                                20
+                                
                         </h1>
                         <h1 id="entered" >
                             Letters Already Guessed
                         </h1>
                         <h1 id="lettersEntered">
 
-                        </h1>                       
+                        </h1>    
+                        <h1 id="result">
+
+                        </h1>              
                             <!-- <h2>Question<span id="question-"><strong></strong></span></h2>
                             <h2>You chose <span id="user-"><strong></strong></span></h2>
                             <h2>Answer <span id="answer-"><strong></strong></span></h2>    -->
@@ -66,7 +69,7 @@
                     </div>   
                 </div>                
             </div> -->
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col">
                     <div class="jumbotron">
                             <h2>Question<span id="question-"><strong></strong></h2>
@@ -75,173 +78,13 @@
                        </div>  
                       
                 </div>                      
-            </div>
+            </div> -->
         </div>
       </div>
     </div>
   </div>
 
-  <script type="text/javascript">
-/*
-    var car = {
-        make: "Honda",
-        model: "Fit",
-        color: "Blue Raspberry",
-        mileage: 3000,
-        isWorking: true,
-
-        driveToWork: function() {
-
-          alert("Old Mileage: " + this.mileage);
-
-          this.mileage = this.mileage + 8;
-
-          alert("New mileage: " + this.mileage);
-        },
-
-        driveAroundWorld: function() {
-
-          alert("Old Mileage: " + this.mileage);
-
-          this.mileage = this.mileage + 24000;
-
-          alert("New Mileage: " + this.mileage);
-          alert("Car needs a tuneup!");
-
-          this.isWorking = false;
-        },
-
-        getTuneUp: function() {
-          alert("Car is ready to go!");
-          this.isWorking = true;
-        },
-
-        honk: function() {
-          alert("Honk! Honk!");
-        }
-      }; */
-
-    var words = [
-                     "The sky is blue", 
-                     "There are 365 days in a year", 
-                     "Earth is square", 
-                     "I love css", 
-                     "SF is a cool city", 
-                     "Sailing is fun", 
-                     "Earth is round", 
-                     "blue is red", 
-                     "Burgundy wine tastes good",
-                     "Today is Sunday",                   
-                    ];
-
-    var letters = [];
-
-    var user = "";
-    var computer = "";
-    var numQ = 0;
-    var remain = 20;
-   // var userText = "";
-    // This function is run whenever the user presses a key.
-
- //  for (i=0; i<10; i++) 
- // { 
-  //    console.log(questions[i].q);
-
-    var numQ = Math.floor(Math.random() * words.length);
- //   var i=1;
-
-    var userScore = 0;
-    var numQuestions = 0;
-
-    var questionText = document.getElementById("question-");
-    var userText = document.getElementById("user-");  
-    var answerText =  document.getElementById("answer-"); 
-
-    var wtg = $("#word-to-guess");
-
-    var isEntered = false;
-  //  var combinedLetters = "";
-
-    // questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
-    for (i=0; i<words[numQ].length; i++)
-         {
-            var newLetter = $("<span>");
-            newLetter.addClass("newL");
-            newLetter.attr("id","letter"+i);
-            newLetter.text("_");  
-            wtg.append(newLetter);   
-         }
-
-    questionText.textContent = + " " + numQ+ ": " +words[numQ]; 
-
-    document.onkeyup = function(event)
-     {
-      user = event.key.toLowerCase();
-      isEntered = false;
-      for (i=0; i<letters.length; i++)
-        {
-            if (user===letters[i].toLowerCase())
-            {
-             //  alert("Letter "+user+" Already entered");
-                isEntered = true;
-            }
-        }
-      if ( isEntered === false)
-            {
-                letters.push(user);
-                for (j=0; j<words[numQ].length; j++)
-                {
-                    if (user === words[numQ].charAt(j).toLowerCase())
-                    {
-                        // alert("word "+i+" = "+ words[numQ].charAt(i));
-                        $("#letter"+j).text(words[numQ].charAt(j));
-            
-                    }
-                //   alert("word "+j+" = "+ words[numQ]);
-                }
-                var combinedLetters = "";
-                for (j=0; j<letters.length; j++)
-                    {
-                    combinedLetters = combinedLetters + letters[j]+" ";
-                    }
-                $("#lettersEntered").text(combinedLetters);
-                remain--;
-                $("#remaining").text(" "+remain);              
-            }
-
-
-/*
-       if (user === questions[numQ].a)
-      {
-        alert(" Correct!");
-      }
-      else
-      {
-          alert("Incorrect.");
-      }   
-   
-      if (user === "t" || user==="f") {
-
-         userText.textContent = event.key;
- 
-         answerText.textContent = " is " +questions[numQ].a;
-      }
-      else
-      {
-        alert(user +" is not a correct key. Please enter t or f.")
-      }
-      numQ = Math.floor(Math.random() * questions.length);
-      questionText.textContent = + " " + numQ+ ": " +questions[numQ].q; 
-      userText.textContent = event.key;     
-      answerText.textContent = ""; */
-     } 
-  //}
-
-   //   alert("User guess: " + user);
-   //   var computer = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-  //    alert("Computer guess: " + computer);
-    //  var computerText = document.getElementById("computer-");
-     // computerText.textContent = computer;
+  <script type="text/javascript" src="assets/javascript/game.js">
 
   </script>
 
